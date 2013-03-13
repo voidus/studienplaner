@@ -1,0 +1,18 @@
+%h1= @plan.name
+%p Hier könnte später mal eine Beschreibung stehen
+
+.modullist
+  %h3 Module
+
+  %ul.modules= partial 'studienplans/modul', collection: @plan.moduls
+
+  = form_tag url_for(:studienplans, :add_module), class: "form-inline" do
+    = hidden_field_tag :studienplan_id, value: @plan.id
+    .input-append
+      = text_field_tag :modul_name,
+                       class: "input-xlarge",
+                       data: {provide: "typeahead", source: JSON.generate(@available_module_names)},
+                       autocomplete: :off,
+                       placeholder: "Neues Modul hinzufügen"
+      %button.btn{type: "submit"}
+        %i.icon-plus

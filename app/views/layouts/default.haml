@@ -1,0 +1,16 @@
+!!! 5
+%html
+  %head
+    %meta{charset: "utf8"}
+    %title Studienplaner
+    = stylesheet_link_tag 'bootstrap'
+    = yield_content :include
+  %body{style: "padding-top: 60px;"}
+
+    = partial 'layouts/header'
+
+    .container
+      = yield
+
+    = javascript_include_tag 'jquery'
+    = javascript_include_tag 'bootstrap'

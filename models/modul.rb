@@ -5,6 +5,7 @@ class Modul
 
   property :id, Serial
   property :name, String
+  property :credits, Integer
   property :source_tex, Text
 
   def self.from_latex(latex)
@@ -14,8 +15,12 @@ class Modul
     @@name_regexp ||= /\\modulename\{(?<name>(\\\}|[^\}])+)\}/
     name = @@name_regexp.match(latex)[:name]
 
+    @@credits_regexp ||= /\\modulecredits\{(?<credits>(\\\}|[^\}])+)\}/
+    credits = @@credits_regexp.match(latex)[:credits]
+
     self.create \
-      :name => name,
-      :source_tex => source_tex
+      name: name,
+      credits: credits,
+      source_tex: source_tex
   end
 end

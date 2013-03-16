@@ -5,5 +5,5 @@ class Studiengang
 
     property :id, Serial
     property :name, String, required: true
-    property :constraints, ConstraintSet
+    property :constraints, ConstraintSet, default: []
 end

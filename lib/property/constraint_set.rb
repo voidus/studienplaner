@@ -2,12 +2,14 @@ require 'dm-core'
 
 module DataMapper
     class Property
-        class ConstraintSet < String
+        class ConstraintSet < Text
             def load(value)
+                p value
                 JSON value
             end
 
             def dump(value)
+                p value
                 JSON value
             end
 

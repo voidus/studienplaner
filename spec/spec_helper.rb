@@ -11,3 +11,18 @@ def app
   #   Padrino.application
   Studienplaner.tap { |app|  }
 end
+
+module ConstraintsInterface
+  def self.included(mod)
+    mod.module_eval do
+      context "constraints interface methods" do
+        its(:class) {should respond_to(:json_create)}
+
+        %w[satisfied_by? error_message].each do |m|
+          it {should respond_to(m.to_sym)}
+        end
+      end
+    end
+  end
+end
+

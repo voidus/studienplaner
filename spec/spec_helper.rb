@@ -15,7 +15,7 @@ end
 module ConstraintsInterface
   def self.included(mod)
     mod.module_eval do
-      context "constraints interface methods" do
+      context "To fulfill the constraints interface methods it" do
         its(:class) {should respond_to(:json_create)}
 
         %w[satisfied_by? error_message].each do |m|

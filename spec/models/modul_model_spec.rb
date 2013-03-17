@@ -10,11 +10,10 @@ this shouldn't matter
 EOF
 
 describe Modul do
-  context "latex extraction example" do
+  context "In the latex extraction sample" do
     subject {Modul.from_latex latex_source}
 
     its(:name) {should eql "name with spaces and ümlauts"}
     its(:credits) {should eql 8}
-    it {should respond_to :name}
   end
 end

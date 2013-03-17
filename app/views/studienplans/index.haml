@@ -1,2 +1,7 @@
-%h1 Studienpläne
+.header
+  %h1{style: "display: inline-block; vertical-align: middle"} Studienpläne
+  %a.btn.open-studienplan-form-create{style: "vertical-align: middle;"}
+    %i.icon-plus
+
+.studienplan-form-create{style: "display: none;"}= partial "studienplans/form", object: Studienplan.new
 = partial "studienplans/studienplan", collection: @plans

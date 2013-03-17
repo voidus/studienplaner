@@ -1,3 +1,5 @@
 .studienplan
-  .name= link_to studienplan.name, url_for(:studienplans, :show, id: studienplan.id)
-    %p.weak= studienplan.studiengang.name
+  %span.name
+    = link_to studienplan.name, url_for(:studienplans, :show, id: studienplan.id)
+    - unless studienplan.studiengang.nil?
+      %small.muted= studienplan.studiengang.name

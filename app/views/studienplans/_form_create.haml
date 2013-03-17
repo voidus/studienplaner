@@ -1,0 +1,7 @@
+- form_for Studienplan.new, url_for(:studienplans, :create), class: "form-inline" do |f|
+  = f.error_messages
+  %p
+    = f.text_field :name, placeholder: "Name"
+    = f.select :studiengang, collection: Studiengang.all, fields: [:name, :id]
+    %button.btn{type: "submit"}
+      %i.icon-ok

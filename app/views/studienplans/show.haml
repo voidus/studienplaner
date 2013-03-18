@@ -1,5 +1,10 @@
-%h1= @plan.name
+%h1= "#{@plan.name} (#{@plan.credits} LP)"
 %p Hier könnte später mal eine Beschreibung stehen
+
+.constraints
+  %h3 Rahmenbedingungen
+  %ul= partial 'studienplan/constraint', collection: @plan.studiengang.constraints, locals: {plan: @plan}
+
 
 .modullist
   %h3 Module

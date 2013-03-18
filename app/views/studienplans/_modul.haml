@@ -1,1 +1,3 @@
-%li= link_to modul.name, url_for(:moduls, :show, id: modul.id)
+%li
+  = link_to modul.name, url_for(:moduls, :show, id: modul.id)
+  %span.muted= "#{modul.credits} LP"

@@ -1,0 +1,5 @@
+%li
+  - if constraint.satisfied_by? plan
+    constraint.fulfilled_message
+  - else
+    constraint.unfulfilled_message

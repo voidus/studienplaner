@@ -1,5 +1,6 @@
 .studienplan
-  %span.name
-    = link_to studienplan.name, url_for(:studienplans, :show, id: studienplan.id)
-    - unless studienplan.studiengang.nil?
-      %small.muted= studienplan.studiengang.name
+  %a{href: url_for(:studienplans, :delete, id: studienplan.id)}
+    %i.icon-remove
+  = link_to studienplan.name, url_for(:studienplans, :show, id: studienplan.id)
+  - unless studienplan.studiengang.nil?
+    %small.muted= studienplan.studiengang.name

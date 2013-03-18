@@ -10,11 +10,11 @@ module Constraints
             studienplan.modules.map{|m| m.credits}.reduce(:+) >= @credits
         end
 
-        def error_message
+        def unfulfilled_message
             "Der Plan muss mindestens #{@credits} Leistungspunkte beinhalten"
         end
 
-        def to_s
+        def fulfilled_message
             "Mindestens #{@credits} Leistungspunkte"
         end
 

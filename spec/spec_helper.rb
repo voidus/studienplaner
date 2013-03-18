@@ -18,7 +18,7 @@ module ConstraintsInterface
       context "To fulfill the constraints interface methods it" do
         its(:class) {should respond_to(:json_create)}
 
-        %w[satisfied_by? error_message].each do |m|
+        %w[satisfied_by? fulfilled_message unfulfilled_message].each do |m|
           it {should respond_to(m.to_sym)}
         end
       end

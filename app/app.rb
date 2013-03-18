@@ -6,6 +6,7 @@ class Studienplaner < Padrino::Application
   register Padrino::Mailer
   register Padrino::Helpers
   register Padrino::Assets
+  register Padrino::Flash
   register CompassInitializer
 
   enable :sessions

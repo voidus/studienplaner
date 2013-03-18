@@ -23,7 +23,23 @@ Studienplaner.controllers :studienplans do
     redirect url(:studienplans, :show, id: params[:studienplan_id])
   end
 
+  get :delete, with: :id do
+    @plan = Studienplan.get(params[:id])
+    @plan.destroy
+    redirect url(:studienplans, :index)
+  end
+
   post :create do
-    raise :not_implemented
+    plan_params = params['studienplan']
+    @studienplan = Studienplan.new name: plan_params["name"]
+    @studienplan.studiengang = Studiengang.get(plan_params["studiengang"])
+    begin
+      @studienplan.save
+      flash[:notice] = "Studienplan #{@studienplan.name} wurde angelegt"
+      redirect url(:studienplans, :show, id: @studienplan.id)
+    rescue DataMapper::SaveFailureError
+      raise @studienplan.errors.inspect unless @studienplan.errors.empty?
+      raise @studienplan.studiengang.errors.inspect
+    end
   end
 end

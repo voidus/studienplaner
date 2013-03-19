@@ -10,7 +10,7 @@
 #
 
 class Studienplan < ActiveRecord::Base
-  attr_accessible :name, :studiengang
+  attr_accessible :name, :studiengang, :studiengang_id
 
   has_many :moduls
   belongs_to :studiengang

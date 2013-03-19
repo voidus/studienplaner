@@ -1,6 +1,6 @@
 class Studienplaner < Padrino::Application
   set :haml, format: :html5
-  DataMapper::Model.raise_on_save_failure = true
+  use ActiveRecord::ConnectionAdapters::ConnectionManagement
 
   register Padrino::Rendering
   register Padrino::Mailer

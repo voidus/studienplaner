@@ -11,13 +11,8 @@ gem 'sinatra-flash', :require => 'sinatra/flash'
 # Component requirements
 gem 'compass'
 gem 'haml'
-gem 'dm-sqlite-adapter'
-gem 'dm-validations'
-gem 'dm-timestamps'
-gem 'dm-migrations'
-gem 'dm-constraints'
-gem 'dm-aggregates'
-gem 'dm-core'
+gem 'activerecord', :require => "active_record"
+gem 'sqlite3'
 
 # Test requirements
 gem 'rspec', :group => "test"

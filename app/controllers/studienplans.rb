@@ -2,11 +2,13 @@ require 'json'
 
 Studienplaner.controllers :studienplans do
   get :index, :map => "/" do
+    raise :not_implemented
     @plans = Studienplan.all
     render 'studienplans/index'
   end
 
   get :show, with: :id do
+    raise :not_implemented
     @plan = Studienplan.get(params[:id])
     @available_module_names = Modul.all.map {|m| m.name}
     p @available_module_names
@@ -14,6 +16,7 @@ Studienplaner.controllers :studienplans do
   end
 
   post :add_module do
+    raise :not_implemented
     @plan = Studienplan.get(params[:studienplan_id])
     @modul = Modul.first(name: params[:modul_name])
     return "Scary Error message :(" if @plan.nil? or @modul.nil?
@@ -24,12 +27,14 @@ Studienplaner.controllers :studienplans do
   end
 
   get :delete, with: :id do
+    raise :not_implemented
     @plan = Studienplan.get(params[:id])
     @plan.destroy
     redirect url(:studienplans, :index)
   end
 
   post :create do
+    raise :not_implemented
     plan_params = params['studienplan']
     @studienplan = Studienplan.new name: plan_params["name"]
     @studienplan.studiengang = Studiengang.get(plan_params["studiengang"])

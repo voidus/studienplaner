@@ -1,12 +1,12 @@
 require "latex_cleaner"
 
-class Modul
-  include DataMapper::Resource
-
-  property :id, Serial
-  property :name, String
-  property :credits, Integer
-  property :source_tex, Text
+class Modul < ActiveRecord::Base
+#  include DataMapper::Resource
+#
+#  property :id, Serial
+#  property :name, String
+#  property :credits, Integer
+#  property :source_tex, Text
 
   def self.from_latex(latex)
 

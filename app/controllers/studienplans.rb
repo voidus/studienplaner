@@ -7,25 +7,25 @@ Studienplaner.controllers :studienplans do
   end
 
   get :show, with: :id do
-    @plan = Studienplan.get(params[:id])
+    @plan = Studienplan.find(params[:id])
     @available_module_names = Modul.all.map {|m| m.name}
     render 'studienplans/show'
   end
 
   post :add_module do
-    raise :not_implemented
-    @plan = Studienplan.get(params[:studienplan_id])
-    @modul = Modul.first(name: params[:modul_name])
+    @plan = Studienplan.find(params[:studienplan_id])
+    @modul = Modul.where(name: params[:modul_name])
+
     return "Scary Error message :(" if @plan.nil? or @modul.nil?
 
     @plan.moduls << @modul
-    @plan.save
+    return "Even scarier :((" unless @plan.save
+
     redirect url(:studienplans, :show, id: params[:studienplan_id])
   end
 
   get :delete, with: :id do
-    raise :not_implemented
-    @plan = Studienplan.get(params[:id])
+    @plan = Studienplan.find(params[:id])
     @plan.destroy
     redirect url(:studienplans, :index)
   end

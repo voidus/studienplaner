@@ -7,7 +7,7 @@ module Constraints
         end
 
         def satisfied_by? studienplan
-            studienplan.modules.map{|m| m.credits}.reduce(:+) >= @credits
+            studienplan.moduls.map{|m| m.credits}.reduce(0, :+) >= @credits
         end
 
         def unfulfilled_message

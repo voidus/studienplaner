@@ -18,6 +18,6 @@ class Studienplan < ActiveRecord::Base
   validates :studiengang, presence: true
 
   def credits
-    moduls.map {|m| m.credits}.reduce(:+)
+    moduls.map {|m| m.credits}.reduce(0, :+)
   end
 end

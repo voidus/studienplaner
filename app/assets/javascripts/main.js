@@ -1,7 +1,7 @@
 require([
     'studienplans/behaviour'
 ], function(
-  studienplansBehaviour
+    studienplansBehaviour
 ) {
-  studienplansBehaviour.apply();
-})
+    studienplansBehaviour.apply();
+});

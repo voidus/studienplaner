@@ -8,6 +8,8 @@
 #
 
 class Studiengang < ActiveRecord::Base
+  attr_accessible :name, :constraints
+
   serialize :constraints
   has_many :studienplans
     #include DataMapper::Resource

@@ -2,7 +2,6 @@ require 'json'
 
 Studienplaner.controllers :studienplans do
   get :index, :map => "/" do
-    raise :not_implemented
     @plans = Studienplan.all
     render 'studienplans/index'
   end
@@ -34,9 +33,7 @@ Studienplaner.controllers :studienplans do
   end
 
   post :create do
-    raise :not_implemented
-    plan_params = params['studienplan']
-    @studienplan = Studienplan.new name: plan_params["name"]
+    @studienplan = Studienplan.new params['studienplan']
     @studienplan.studiengang = Studiengang.get(plan_params["studiengang"])
     begin
       @studienplan.save

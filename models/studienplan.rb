@@ -10,10 +10,13 @@
 #
 
 class Studienplan < ActiveRecord::Base
+  attr_accessible :name, :studiengang
+
   has_many :moduls
   belongs_to :studiengang
 
   validates :studiengang, presence: true
+
   def credits
     moduls.map {|m| m.credits}.reduce(:+)
   end

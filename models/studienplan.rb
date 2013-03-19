@@ -12,7 +12,7 @@
 class Studienplan < ActiveRecord::Base
   attr_accessible :name, :studiengang, :studiengang_id
 
-  has_many :moduls
+  has_and_belongs_to_many :moduls
   belongs_to :studiengang
 
   validates :studiengang, presence: true

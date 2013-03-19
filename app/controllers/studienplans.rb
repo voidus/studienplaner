@@ -7,10 +7,8 @@ Studienplaner.controllers :studienplans do
   end
 
   get :show, with: :id do
-    raise :not_implemented
     @plan = Studienplan.get(params[:id])
     @available_module_names = Modul.all.map {|m| m.name}
-    p @available_module_names
     render 'studienplans/show'
   end
 
@@ -34,14 +32,11 @@ Studienplaner.controllers :studienplans do
 
   post :create do
     @studienplan = Studienplan.new params['studienplan']
-    @studienplan.studiengang = Studiengang.get(plan_params["studiengang"])
-    begin
-      @studienplan.save
+    if @studienplan.save
       flash[:notice] = "Studienplan #{@studienplan.name} wurde angelegt"
       redirect url(:studienplans, :show, id: @studienplan.id)
-    rescue DataMapper::SaveFailureError
-      raise @studienplan.errors.inspect unless @studienplan.errors.empty?
-      raise @studienplan.studiengang.errors.inspect
+    else
+      raise "couldn't create studienplan"
     end
   end
 end

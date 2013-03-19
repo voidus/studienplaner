@@ -24,3 +24,7 @@ gem 'padrino-assets'
 gem 'padrino-flash'
 
 gem 'json'
+
+group :development do
+  gem 'annotate'
+end

@@ -1,6 +1,6 @@
 desc "Import the modules from the latex sources"
-task :import => [:environment, :'dm:create'] do
-  Modul.all.destroy!
+task :import => [:environment, :'ar:create'] do
+  Modul.delete_all
 
   module_dir = File.join(File.dirname(__FILE__), *%w[.. latex_sources module])
   Dir.foreach module_dir do |module_file|

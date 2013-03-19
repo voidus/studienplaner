@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 3) do
   end
 
   create_table "studienplans", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "studiengang_id"

@@ -3,13 +3,12 @@
 
 .constraints
   %h3 Rahmenbedingungen
-  %ul= partial 'studienplan/constraint', collection: @plan.studiengang.constraints, locals: {plan: @plan}
-
+  %ul= partial 'studienplans/constraint', collection: @plan.studiengang.constraints, locals: {plan: @plan}
 
 .modullist
   %h3 Module
 
-  %ul.modules= partial 'studienplans/modul', collection: @plan.moduls
+  .modules= partial 'studienplans/modul', collection: @plan.moduls
 
   = form_tag url_for(:studienplans, :add_module), class: "form-inline" do
     = hidden_field_tag :studienplan_id, value: @plan.id

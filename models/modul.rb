@@ -12,17 +12,6 @@ require "latex_cleaner"
 
 class Modul < ActiveRecord::Base
   def self.from_latex(latex)
-    source_tex = LatexCleaner.clean(latex)
-
-    @@name_regexp ||= /\\modulename\{(?<name>(\\\}|[^\}])+)\}/
-    name = @@name_regexp.match(latex)[:name]
-
-    @@credits_regexp ||= /\\modulecredits\{(?<credits>(\\\}|[^\}])+)\}/
-    credits = @@credits_regexp.match(latex)[:credits]
-
-    self.create \
-      name: name,
-      credits: credits,
-      source_tex: source_tex
+    ModulParser.parse latex
   end
 end

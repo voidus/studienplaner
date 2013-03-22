@@ -1,6 +1,9 @@
 require 'simplecov'
 SimpleCov.start do
   add_filter '/lib/compass_plugin.rb/'
+  add_filter '/spec/'
+  add_filter '/config/'
+
   add_group 'app', '/app/'
   add_group 'lib', '/lib/'
   add_group 'models', '/models/'

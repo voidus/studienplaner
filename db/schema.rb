@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 5) do
 
   create_table "moduls", :force => true do |t|
     t.string  "name"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(:version => 4) do
     t.string "name"
     t.text   "constraints"
   end
+
+  create_table "studiengangs_initial_moduls", :id => false, :force => true do |t|
+    t.integer "studiengang_id"
+    t.integer "modul_id"
+  end
+
+  add_index "studiengangs_initial_moduls", ["modul_id"], :name => "index_studiengangs_initial_moduls_on_modul_id"
+  add_index "studiengangs_initial_moduls", ["studiengang_id"], :name => "index_studiengangs_initial_moduls_on_studiengang_id"
 
   create_table "studienplans", :force => true do |t|
     t.string   "name"

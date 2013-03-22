@@ -12,4 +12,5 @@ class Studiengang < ActiveRecord::Base
 
   serialize :constraints
   has_many :studienplans
+  has_and_belongs_to_many :initial_moduls, class_name: "Modul", join_table: "studiengangs_initial_moduls"
 end

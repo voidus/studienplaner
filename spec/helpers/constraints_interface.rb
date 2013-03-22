@@ -1,7 +1,7 @@
 module ConstraintsInterface
   def self.included(mod)
     mod.module_eval do
-      context "Constraint interface" do
+      context "for the constraints interface" do
         its(:class) {should respond_to(:json_create)}
 
         %w[satisfied_by? fulfilled_message unfulfilled_message].each do |m|

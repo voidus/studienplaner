@@ -10,7 +10,7 @@ this shouldn't matter
   Not a Stammmodul, do not confuse
 EOF
 
-describe Modul do
+describe ModulParser do
   context "In the latex extraction sample" do
     subject {Modul.from_latex latex_source}
 
@@ -25,7 +25,7 @@ describe Modul do
     its(:stammmodul?) {should be_true}
   end
 
-  context "with \"Das Modul .. ist ein Stammmodul.\"" do
+  context "with \"Das Modul \\emph{*name*} ist ein Stammmodul.\"" do
     subject do
       source = "#{latex_source}\n\\begin{remarks}Das Modul \\emph{name with spaces and ümlauts} ist ein Stammmodul."
       Modul.from_latex(source)

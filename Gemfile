@@ -32,4 +32,5 @@ group :test do
   gem 'rack-test', :require => "rack/test"
   gem 'require_all'
   gem 'factory_girl'
+  gem 'coveralls', :require => false
 end

@@ -9,6 +9,9 @@ SimpleCov.start do
   add_group 'models', '/models/'
 end
 
+require 'coveralls'
+Coveralls.wear!
+
 PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 

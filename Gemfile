@@ -24,6 +24,7 @@ gem 'json'
 
 group :development do
   gem 'annotate', require: false
+  gem 'autotest'
 end
 
 group :test do

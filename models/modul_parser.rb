@@ -11,6 +11,7 @@ class ModulParser
     Modul.new \
       name: name,
       credits: credits,
+      stammmodul: stammmodul?,
       source_tex: @latex
   end
 
@@ -22,5 +23,10 @@ class ModulParser
 
   def credits
     @credits ||= /\\modulecredits\{(?<credits>(\\\}|[^\}])+)\}/.match(@latex)[:credits]
+  end
+
+  def stammmodul?
+    not (/Dieses Modul ist ein Stammmodul\./ =~ (@latex) ||
+      /Das Modul \\emph\{#{Regexp.escape(name)}\} ist ein Stammmodul\./ =~ (@latex)).nil?
   end
 end

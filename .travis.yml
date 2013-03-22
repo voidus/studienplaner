@@ -8,6 +8,6 @@ rvm:
   - ree
 
 script:
-  padrino rake ar:reset -e test
+  padrino rake ar:setup -e test
   rake
 

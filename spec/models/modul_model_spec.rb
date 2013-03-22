@@ -13,6 +13,7 @@ describe Modul do
   context "In the latex extraction sample" do
     subject {Modul.from_latex latex_source}
 
+    its(:valid?) {should be_true}
     its(:name) {should eql "name with spaces and ümlauts"}
     its(:credits) {should eql 8}
   end

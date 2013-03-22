@@ -14,9 +14,6 @@ gem 'haml'
 gem 'activerecord', :require => "active_record"
 gem 'sqlite3'
 
-# Test requirements
-gem 'rspec', :group => "test"
-gem 'rack-test', :require => "rack/test", :group => "test"
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'
@@ -26,5 +23,11 @@ gem 'padrino-flash'
 gem 'json'
 
 group :development do
-  gem 'annotate'
+  gem 'annotate', require: false
+end
+
+group :test do
+  gem 'simplecov'
+  gem 'rspec'
+  gem 'rack-test', :require => "rack/test"
 end

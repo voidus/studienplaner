@@ -7,6 +7,7 @@ this shouldn't matter
   \\modulename{name with spaces and ümlauts}
 \\modulecredits{8}
   more context
+  Not a Stammmodul, do not confuse
 EOF
 
 describe Modul do
@@ -16,5 +17,6 @@ describe Modul do
     its(:valid?) {should be_true}
     its(:name) {should eql "name with spaces and ümlauts"}
     its(:credits) {should eql 8}
+    its(:stammmodul?) {should be_false}
   end
 end

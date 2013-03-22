@@ -27,6 +27,6 @@ class ModulParser
 
   def stammmodul?
     not (/Dieses Modul ist ein Stammmodul\./ =~ (@latex) ||
-      /Das Modul \\emph\{#{Regexp.escape(name)}\} ist ein Stammmodul\./ =~ (@latex)).nil?
+      /Das Modul \\emph\{#{Regexp.escape(name)}\s*\} ?ist ein Stammmodul\./ =~ (@latex)).nil?
   end
 end

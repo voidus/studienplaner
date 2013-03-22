@@ -1,24 +1,26 @@
-module ModulParser
-  class << self
-    def parse latex
-      latex = LatexCleaner.clean(latex)
+class ModulParser
+  def self.parse latex
+    self.new(latex).parse
+  end
 
-      Modul.new \
-        name: parse_name(latex),
-        credits: parse_credits(latex),
-        source_tex: latex
-    end
+  def initialize latex
+    @latex = LatexCleaner.clean(latex)
+  end
 
-    private
+  def parse
+    Modul.new \
+      name: name,
+      credits: credits,
+      source_tex: @latex
+  end
 
-    def parse_name latex
-      @name_regexp ||= /\\modulename\{(?<name>(\\\}|[^\}])+)\}/
-      @name_regexp.match(latex)[:name]
-    end
+  private
 
-    def parse_credits latex
-      @credits_regexp ||= /\\modulecredits\{(?<credits>(\\\}|[^\}])+)\}/
-      @credits_regexp.match(latex)[:credits]
-    end
+  def name
+    @name ||= /\\modulename\{(?<name>(\\\}|[^\}])+)\}/.match(@latex)[:name]
+  end
+
+  def credits
+    @credits ||= /\\modulecredits\{(?<credits>(\\\}|[^\}])+)\}/.match(@latex)[:credits]
   end
 end

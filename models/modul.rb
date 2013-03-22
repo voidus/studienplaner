@@ -2,10 +2,11 @@
 #
 # Table name: moduls
 #
+#  credits    :integer
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  source_tex :text
-#  credits    :integer
+#  stammmodul :boolean          default(FALSE)
 #
 
 require "latex_cleaner"

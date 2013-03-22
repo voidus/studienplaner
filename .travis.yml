@@ -9,3 +9,8 @@ rvm:
   - ruby-head
   - jruby-head
   - ree
+
+script:
+  padrino rake ar:reset -e test
+  rake
+

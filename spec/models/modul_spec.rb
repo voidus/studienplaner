@@ -19,4 +19,18 @@ describe Modul do
     its(:credits) {should eql 8}
     its(:stammmodul?) {should be_false}
   end
+
+  context "with \"Dieses Modul ist ein Stammmodul.\"" do
+    subject {Modul.from_latex("#{latex_source}\n\\begin{remarks}Dieses Modul ist ein Stammmodul.")}
+    its(:stammmodul?) {should be_true}
+  end
+
+  context "with \"Das Modul .. ist ein Stammmodul.\"" do
+    subject do
+      source = "#{latex_source}\n\\begin{remarks}Das Modul \\emph{name with spaces and ümlauts} ist ein Stammmodul."
+      Modul.from_latex(source)
+    end
+
+    its(:stammmodul?) {should be_true}
+  end
 end

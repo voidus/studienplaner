@@ -1,4 +1,9 @@
 require 'simplecov'
+require 'coveralls'
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 SimpleCov.start do
   add_filter '/lib/compass_plugin.rb/'
   add_filter '/spec/'
@@ -8,9 +13,6 @@ SimpleCov.start do
   add_group 'lib', '/lib/'
   add_group 'models', '/models/'
 end
-
-require 'coveralls'
-Coveralls.wear!
 
 PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")

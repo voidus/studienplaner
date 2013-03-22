@@ -3,7 +3,7 @@ module ModulParser
     def parse latex
       latex = LatexCleaner.clean(latex)
 
-      Modul.create \
+      Modul.new \
         name: parse_name(latex),
         credits: parse_credits(latex),
         source_tex: latex

@@ -23,4 +23,6 @@ def app
   Studienplaner.tap { |app|  }
 end
 
+FactoryGirl.find_definitions
+
 require_rel 'helpers'

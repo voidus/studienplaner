@@ -1,21 +1,5 @@
 require 'spec_helper'
 
-FactoryGirl.define do
-  factory :modul do
-    sequence(:name) {|n| "Testmodul ##{n}"}
-  end
-
-  factory :studiengang do
-    sequence(:name) {|n| "Teststudiengang ##{n}"}
-  end
-
-  factory :studienplan do
-    sequence(:name) {|n| "Teststudienplan ##{n}"}
-    studiengang FactoryGirl.build :studiengang
-  end
-end
-
-
 describe Constraints::StammmodulCount do
   subject(:constraint) {Constraints::StammmodulCount.new 2}
 

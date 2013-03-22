@@ -8,7 +8,7 @@
 #
 
 class Studiengang < ActiveRecord::Base
-  attr_accessible :name, :constraints
+  attr_accessible :name, :constraints, :initial_moduls
 
   serialize :constraints
   has_many :studienplans

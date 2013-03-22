@@ -7,6 +7,7 @@ this shouldn't matter
   \\modulename{name with spaces and ümlauts}
 \\modulecredits{8}
   more context
+  \\moduleID{IN3SOMETHING}
   Not a Stammmodul, do not confuse
 EOF
 
@@ -18,6 +19,7 @@ describe ModulParser do
     its(:name) {should eql "name with spaces and ümlauts"}
     its(:credits) {should eql 8}
     its(:stammmodul?) {should be_false}
+    its(:key) {should eql "IN3SOMETHING"}
   end
 
   context "with \"Dieses Modul ist ein Stammmodul.\"" do

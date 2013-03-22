@@ -6,6 +6,6 @@ rvm:
   - ree
 
 script:
-  padrino rake ar:setup -e test
-  rake spec
+  - padrino rake ar:setup -e test
+  - rake spec
 

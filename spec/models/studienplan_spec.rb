@@ -11,9 +11,24 @@
 
 require 'spec_helper'
 
-describe "Studienplan Model" do
-  let(:studienplan) { Studienplan.new }
+describe Studienplan do
   it 'can be created' do
-    studienplan.should_not be_nil
+    subject.should_not be_nil
+  end
+
+  context "simple example" do
+    subject (:plan) do
+      plan = Studienplan.new
+
+      m1 = Modul.new
+      m1.stub credits: 33
+      m2 = Modul.new
+      m2.stub credits: 35.2
+      plan.moduls = [m1, m2]
+
+      plan
+    end
+
+    its(:credits) {should == 68.2}
   end
 end

@@ -31,4 +31,5 @@ group :test do
   gem 'rspec'
   gem 'rack-test', :require => "rack/test"
   gem 'require_all'
+  gem 'factory_girl'
 end

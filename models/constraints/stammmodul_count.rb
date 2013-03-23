@@ -1,5 +1,7 @@
 module Constraints
     class StammmodulCount
+        include Jsonizable.new :count
+
         attr_accessor :count
 
         def initialize count
@@ -16,17 +18,6 @@ module Constraints
 
         def fulfilled_message
             "Mindestens #{@count} Stammmodule"
-        end
-
-        def to_json(*a)
-            {
-                'json_class' => self.class.name,
-                'count' => @count
-            }.to_json(*a)
-        end
-
-        def self.json_create(o)
-            new o['count']
         end
 
         def == o

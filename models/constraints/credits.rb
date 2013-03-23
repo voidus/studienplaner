@@ -1,6 +1,7 @@
 module Constraints
   class Credits
     include Jsonizable.new :credits
+    include Equalizer.new :credits
 
     attr_accessor :credits
 
@@ -18,10 +19,6 @@ module Constraints
 
     def fulfilled_message
       "Mindestens #{@credits} Leistungspunkte"
-    end
-
-    def == o
-      o.instance_of? self.class and o.credits == @credits
     end
   end
 end

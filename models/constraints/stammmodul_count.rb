@@ -1,6 +1,7 @@
 module Constraints
   class StammmodulCount
     include Jsonizable.new :count
+    include Equalizer.new :count
 
     attr_accessor :count
 
@@ -18,10 +19,6 @@ module Constraints
 
     def fulfilled_message
       "Mindestens #{@count} Stammmodule"
-    end
-
-    def == o
-      o.instance_of? self.class and o.count == @count
     end
   end
 end

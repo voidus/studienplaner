@@ -21,6 +21,7 @@ gem 'padrino-assets'
 gem 'padrino-flash'
 
 gem 'json'
+gem 'equalizer'
 
 group :development do
   gem 'annotate', require: false

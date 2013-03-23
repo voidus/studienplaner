@@ -10,8 +10,6 @@
 #  stammmodul :boolean          default(FALSE)
 #
 
-require "latex_cleaner"
-
 class Modul < ActiveRecord::Base
   def self.from_latex(latex)
     ModulParser.parse latex

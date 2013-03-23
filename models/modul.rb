@@ -11,6 +11,10 @@
 #
 
 class Modul < ActiveRecord::Base
+  validates :key, presence: true
+  validates :name, presence: true
+  validates :credits, presence: true
+
   def self.from_latex(latex)
     ModulParser.parse latex
   end

@@ -12,6 +12,7 @@ class ModulParser
       name: name,
       credits: credits,
       stammmodul: stammmodul?,
+      key: key,
       source_tex: @latex
   end
 
@@ -23,6 +24,10 @@ class ModulParser
 
   def credits
     @credits ||= /\\modulecredits\{(?<credits>(\\\}|[^\}])+)\}/.match(@latex)[:credits]
+  end
+
+  def key
+    @key ||= /\\moduleID\{(?<key>(\\\}|[^\}])+)\}/.match(@latex)[:key]
   end
 
   def stammmodul?

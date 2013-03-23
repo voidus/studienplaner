@@ -1,5 +1,8 @@
 module ModulSetMatcher
   class Any
+    include Jsonizable.new :children
+    include Equalizer.new :children
+
     attr_reader :children
 
     def initialize children

@@ -34,4 +34,5 @@ group :test do
   gem 'require_all'
   gem 'factory_girl'
   gem 'coveralls', :require => false
+  gem 'shoulda-matchers'
 end

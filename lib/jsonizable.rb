@@ -1,7 +1,7 @@
 class Jsonizable < Module
   def initialize *keys
     @keys = keys
-    define_to_json
+    define_as_json
   end
 
   def included mod
@@ -10,14 +10,14 @@ class Jsonizable < Module
 
   private
 
-  def define_to_json
+  def define_as_json
     keys = @keys
-    define_method :to_json do |*a|
+    define_method :as_json do |*a|
       hash = {'json_class' => self.class.name}
       keys.each do |a|
-        hash[a.to_s] = send(a.to_sym)
+        hash[a.to_s] = self.send(a.to_sym)
       end
-      hash.to_json(*a)
+      hash
     end
   end
 

@@ -17,6 +17,13 @@ class Studienplan < ActiveRecord::Base
 
   validates :studiengang, presence: true
 
+  def initialize attributes = nil, options = {}
+    super
+    if studiengang and (moduls.nil? or moduls.empty?)
+      self.moduls = studiengang.initial_moduls.dup
+    end
+  end
+
   def credits
     moduls.map {|m| m.credits}.reduce(0, :+)
   end

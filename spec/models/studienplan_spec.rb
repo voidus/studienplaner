@@ -32,7 +32,7 @@ describe Studienplan do
       @studiengang = FactoryGirl.build(:studiengang, initial_moduls: @initial_moduls)
     end
 
-    subject {Studienplan.new moduls: @moduls}
+    subject {Studienplan.new studiengang: @studiengang}
 
     its(:moduls) {should eq @initial_moduls}
   end

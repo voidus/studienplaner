@@ -2,7 +2,7 @@
 #
 # Table name: moduls
 #
-#  credits    :integer
+#  credits    :decimal(6, 2)
 #  id         :integer          not null, primary key
 #  key        :string(255)
 #  name       :string(255)

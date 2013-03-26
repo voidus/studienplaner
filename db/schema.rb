@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 7) do
 
   create_table "moduls", :force => true do |t|
     t.string  "name"
     t.text    "source_tex"
-    t.integer "credits"
-    t.boolean "stammmodul", :default => false
+    t.decimal "credits",    :precision => 6, :scale => 2
+    t.boolean "stammmodul",                               :default => false
     t.string  "key"
   end
 

@@ -16,19 +16,24 @@ describe Studienplan do
     subject.should_not be_nil
   end
 
-  context "simple example" do
-    subject (:plan) do
-      plan = Studienplan.new
-
-      m1 = Modul.new
-      m1.stub credits: 33
-      m2 = Modul.new
-      m2.stub credits: 35.2
-      plan.moduls = [m1, m2]
-
-      plan
+  context "moduls given to the constructor" do
+    before do
+      @moduls = [FactoryGirl.build(:modul, credits: 32), FactoryGirl.build(:modul, credits: 35.2)]
     end
 
-    its(:credits) {should == 68.2}
+    subject {Studienplan.new moduls: @moduls}
+
+    its(:credits) {p @moduls; should eq 67.2}
+  end
+
+  context "moduls from studiengang" do
+    before do
+      @initial_moduls = FactoryGirl.build_list(:modul, 5)
+      @studiengang = FactoryGirl.build(:studiengang, initial_moduls: @initial_moduls)
+    end
+
+    subject {Studienplan.new moduls: @moduls}
+
+    its(:moduls) {should eq @initial_moduls}
   end
 end

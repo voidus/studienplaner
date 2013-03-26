@@ -1,5 +1,6 @@
 #encoding: UTF-8
 system("rake import")
+Modul.create(name: "Bachelorarbeit", credits: 15, key: "BA")
 
 Studiengang.new(
   name: "Informatik",

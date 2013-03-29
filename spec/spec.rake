@@ -1,6 +1,7 @@
 require 'rspec/core/rake_task'
 
 spec_tasks = Dir['spec/*/'].map { |d| File.basename(d) }
+%w[helpers factories].each { |ig| spec_tasks.delete ig}
 
 spec_tasks.each do |folder|
   RSpec::Core::RakeTask.new("spec:#{folder}") do |t|

@@ -1,6 +1,11 @@
 Studienplaner.controllers :moduls do
   get :show, with: :id do
-    render :haml, "hallo"
+    if params[:id] =~ /^\d+$/
+      @modul = Modul.find(params[:id])
+    else
+      @modul = Modul.where(key: params[:id])
+    end
+    render 'moduls/show'
   end
 
   # get :index, :map => "/foo/bar" do

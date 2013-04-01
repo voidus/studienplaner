@@ -31,6 +31,8 @@ end
 group :test do
   gem 'simplecov'
   gem 'rspec'
+  gem 'capybara'
+  gem 'cucumber'
   gem 'rack-test', :require => "rack/test"
   gem 'require_all'
   gem 'factory_girl'

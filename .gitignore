@@ -8,3 +8,5 @@ vendor/gems/*
 *db/*.db
 coverage
 .bundle
+doc
+.yardoc

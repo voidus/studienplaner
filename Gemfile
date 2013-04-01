@@ -20,7 +20,7 @@ gem 'padrino', '0.10.7'
 gem 'padrino-assets'
 gem 'padrino-flash'
 
-gem 'json'
+gem 'jsonizer'
 gem 'equalizer'
 
 group :development do

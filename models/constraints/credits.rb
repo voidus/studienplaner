@@ -1,6 +1,6 @@
 module Constraints
   class Credits
-    include Jsonizable.new :credits
+    include Jsonizer.new :credits
     include Equalizer.new :credits
 
     attr_accessor :credits

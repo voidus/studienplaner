@@ -1,7 +1,7 @@
 #encoding: utf-8
 module Constraints
   class ModulSet
-    include Jsonizable.new :modul_set
+    include Jsonizer.new :modul_set
     include Equalizer.new :modul_set
 
     attr_accessor :modul_set

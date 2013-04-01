@@ -1,6 +1,6 @@
 module ModulSetMatcher
   class Key
-    include Jsonizable.new :key
+    include Jsonizer.new :key
     include Equalizer.new :key
 
     attr_reader :key

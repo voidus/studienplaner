@@ -53,6 +53,8 @@ GEM
     i18n (0.6.4)
     ice_nine (0.7.0)
     json (1.7.7)
+    jsonizer (0.1.0)
+      json
     mail (2.3.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -155,7 +157,7 @@ DEPENDENCIES
   equalizer
   factory_girl
   haml
-  json
+  jsonizer
   padrino (= 0.10.7)
   padrino-assets
   padrino-flash

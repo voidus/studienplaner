@@ -1,6 +1,6 @@
 module ModulSetMatcher
   class All
-    include Jsonizable.new :children
+    include Jsonizer.new :children
     include Equalizer.new :children
 
     attr_reader :children

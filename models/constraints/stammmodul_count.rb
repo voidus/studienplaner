@@ -1,6 +1,6 @@
 module Constraints
   class StammmodulCount
-    include Jsonizable.new :count
+    include Jsonizer.new :count
     include Equalizer.new :count
 
     attr_accessor :count

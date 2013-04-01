@@ -1,3 +1,4 @@
+ENV['autotest'] = 'true'
 Autotest.add_hook :initialize do |at|
     %w[.git .idea .sass-cache coverage db latex_sources tasks tmp].each do |exc|
         at.add_exception exc

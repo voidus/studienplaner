@@ -1,17 +1,19 @@
-require 'simplecov'
-require 'coveralls'
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-SimpleCov.start do
-  add_filter '/lib/compass_plugin.rb/'
-  add_filter '/spec/'
-  add_filter '/config/'
+unless ENV['autotest']
+  require 'simplecov'
+  require 'coveralls'
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+  SimpleCov.start do
+    add_filter '/lib/compass_plugin.rb/'
+    add_filter '/spec/'
+    add_filter '/config/'
 
-  add_group 'app', '/app/'
-  add_group 'lib', '/lib/'
-  add_group 'models', '/models/'
+    add_group 'app', '/app/'
+    add_group 'lib', '/lib/'
+    add_group 'models', '/models/'
+  end
 end
 
 PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)

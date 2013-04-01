@@ -23,7 +23,7 @@ describe Studienplan do
 
     subject {Studienplan.new moduls: @moduls}
 
-    its(:credits) {p @moduls; should eq 67.2}
+    its(:credits) {should eq 67.2}
   end
 
   context "moduls from studiengang" do

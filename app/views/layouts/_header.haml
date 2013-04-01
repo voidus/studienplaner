@@ -1,10 +1,6 @@
 .navbar.navbar-inverse.navbar-fixed-top
   .navbar-inner
     .container
-      %button.btn.btn-navbar{toggle: "collapse", target: ".nav-collapse"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
       = link_to "Studienplaner", url_for(:studienplans, :index), class: "brand"
       .nav-collapse.collapse
         %ul.nav

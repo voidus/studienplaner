@@ -9,6 +9,10 @@ class Studienplaner < Padrino::Application
   register Padrino::Flash
   register CompassInitializer
 
+  use OmniAuth::Builder do
+    provider :developer, fields: [:name], uid_field: :name
+  end
+
   enable :sessions
 
   layout :default

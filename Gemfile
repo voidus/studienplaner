@@ -20,6 +20,8 @@ gem 'padrino', '0.10.7'
 gem 'padrino-assets'
 gem 'padrino-flash'
 
+gem 'omniauth'
+
 gem 'jsonizer'
 gem 'equalizer'
 

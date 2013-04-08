@@ -5,27 +5,26 @@ source "https://rubygems.org"
 # gem 'trinidad', :platform => 'jruby'
 
 # Project requirements
-gem 'rake'
+gem 'rake', '~> 10.0'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 
 # Component requirements
-gem 'compass'
-gem 'haml'
-gem 'activerecord', :require => "active_record"
-gem 'sqlite3'
+gem 'compass', '~> 0.12.2'
+gem 'haml', '~> 4.0'
+gem 'activerecord', '~> 3.2', :require => "active_record"
+gem 'sqlite3', '~> 1.3'
 
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'
-gem 'padrino-assets'
-gem 'padrino-flash'
+gem 'padrino-assets', '0.3.1'
+gem 'padrino-flash', '0.2.0'
 
-gem 'jsonizer'
-gem 'equalizer'
+gem 'jsonizer', '0.1.0'
+gem 'equalizer', '0.0.5'
 
 group :development do
   gem 'annotate', require: false
-  gem 'autotest'
 end
 
 group :test do
